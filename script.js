@@ -69,7 +69,7 @@ function showToDO() {
       const highlightedDate = highlightText(task.date, searchText);
 
       newHtml += `
-        <div class="js-todo-div">
+        <div class="js-todo-div fade-in" id="task-${i}">
           <input type="checkbox" onchange="toggleDone(${i})" ${checked}>
           <span class="${doneClas}">${highlightedItem}</span>
           <span class="${doneClas}">${highlightedDate}</span>
@@ -87,10 +87,17 @@ function highlightText(text, keyword) {
   const regex = new RegExp(`(${keyword})`, 'gi');
   return text.replace(regex, '<span class="highlight">$1</span>');
 }
-function Delete(i) {
-  store.splice(i, 1);
-  saveToLocalStorage();
-  showToDO();
-}
+function Delete(index) {
+  const taskElement = document.getElementById(`task-${index}`);
 
+  // Add fade-out class
+  taskElement.classList.add("fade-out");
+
+  // Wait for animation to complete before removing
+  setTimeout(() => {
+    store.splice(index, 1);
+    saveToLocalStorage();
+    showToDO();
+  }, 300); // match with animation duration
+}
 showToDO(); // Initial render
