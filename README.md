@@ -9,7 +9,7 @@ A simple, elegant, and fully functional **To Do List Web App** built using HTML,
 ✅ **Delete Tasks** – Remove unwanted tasks with a fade-out animation.  
 ✅ **Mark as Complete** – Check off tasks and see them styled as completed.  
 ✅ **Live Search** – Instantly filter tasks by text or date with matched keyword highlighting.  
-✅ **Upcoming Date Sort** – Tasks are sorted automatically by due date.  
+<!-- ✅ **Upcoming Date Sort** – Tasks are sorted automatically by due date.   -->
 ✅ **Responsive Design** – Fully optimized for desktop and mobile screens.  
 ✅ **Local Storage** – All tasks are saved in the browser and persist on reload.
 
