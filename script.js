@@ -37,12 +37,23 @@ function action() {
   showToDO();
 }
 function editTask(index){
-    const task = store[index]
-    document.querySelector("#todo-input").value = task.item;
-    document.querySelector("#date_input").value = task.date;
+  const task = store[index];
+  document.querySelector("#todo-input").value = task.item;
+  document.querySelector("#date_input").value = task.date;
 
-    document.querySelector(".btn").textContent = "Update"
-    editIndex = index
+  document.querySelector(".btn").textContent = "Update";
+  editIndex = index;
+
+  // Add animation to the task being edited
+  const taskElement = document.getElementById(`task-${index}`);
+  if (taskElement) {
+    taskElement.classList.add("edit-animated");
+
+    // Remove animation class after animation ends
+    setTimeout(() => {
+      taskElement.classList.remove("edit-animated");
+    }, 800); // should match the duration of the animation
+  }
 }
 
 function toggleDone(index){
