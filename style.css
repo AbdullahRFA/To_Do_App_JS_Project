@@ -71,24 +71,18 @@ body {
 }
 
 /* Each task container */
-.todo-div  {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: center;
-  background: #e7f3ec;
-  padding: 10px 15px;
-  margin: 10px 0;
-  border-radius: 8px;
+.todo-div {
+  display: flex;
+  flex-direction: column;
   gap: 10px;
 }
 
 .js-todo-div {
   display: grid;
-  grid-template-columns: auto 1fr 100px 60px 60px; /* checkbox | task | date | edit | delete */
+  grid-template-columns: 24px 1fr auto auto auto;
   align-items: center;
   background: #e7f3ec;
   padding: 10px 15px;
-  margin: 10px 0;
   border-radius: 8px;
   gap: 10px;
 }
@@ -150,10 +144,11 @@ body {
     padding: 8px;
   }
 
-  .todo-div .js-todo-div {
-    grid-template-columns: 1fr auto;
-    padding: 8px 10px;
-  }
+  .js-todo-div {
+  grid-template-columns: 1fr;
+  text-align: center;
+  justify-items: center;
+}
 
   .todo-div .js-todo-div span {
     font-size: 14px;
