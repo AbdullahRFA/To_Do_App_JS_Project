@@ -1,0 +1,184 @@
+/* Global styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f5f7fa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Container */
+.container {
+  background: white;
+  margin-top: 50px;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  width: 90%;
+  max-width: 600px;
+  box-sizing: border-box;
+}
+
+/* Heading */
+.input-section h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Input section */
+.input-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#todo-input,
+#date_input {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.btn {
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #388e3c;
+}
+
+/* Todo list section */
+.todo-list {
+  margin-top: 30px;
+}
+
+.todo-list h2 {
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 5px;
+  color: #555;
+}
+
+/* Each task container */
+.todo-div  {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  background: #e7f3ec;
+  padding: 10px 15px;
+  margin: 10px 0;
+  border-radius: 8px;
+  gap: 10px;
+}
+
+.js-todo-div {
+  display: grid;
+  grid-template-columns: auto 1fr 100px 60px 60px; /* checkbox | task | date | edit | delete */
+  align-items: center;
+  background: #e7f3ec;
+  padding: 10px 15px;
+  margin: 10px 0;
+  border-radius: 8px;
+  gap: 10px;
+}
+
+.done {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.todo-div .js-todo-div span {
+  font-size: 16px;
+  color: #333;
+  word-wrap: break-word;
+}
+
+.todo-div .js-todo-div button {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.todo-div .js-todo-div button:hover {
+  background-color: #d32f2f;
+}
+
+/* Footer */
+.footer {
+  margin-top: auto;
+  padding: 20px;
+  text-align: center;
+  background-color: #222;
+  color: #fff;
+  font-size: 14px;
+  width: 100%;
+}
+
+/* Responsive for mobile */
+@media screen and (max-width: 480px) {
+  .container {
+    padding: 20px;
+  }
+
+  .input-section {
+    gap: 8px;
+  }
+
+  #todo-input,
+  #date_input {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .btn {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .todo-div .js-todo-div {
+    grid-template-columns: 1fr auto;
+    padding: 8px 10px;
+  }
+
+  .todo-div .js-todo-div span {
+    font-size: 14px;
+  }
+
+  .footer {
+    font-size: 12px;
+    padding: 15px;
+  }
+.js-todo-div {
+  grid-template-columns: 1fr;
+  text-align: center;
+}
+
+.js-todo-div span,
+.js-todo-div button {
+  margin: 5px 0;
+}
+
+.js-todo-div span {
+  font-size: 14px;
+}
+
+.js-todo-div input[type="checkbox"] {
+  margin-bottom: 5px;
+}
+}
+
