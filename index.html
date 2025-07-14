@@ -9,11 +9,12 @@
 <body>
   <div class="container">
     <div class="input-section">
-      <h1>📝 To Do App</h1>
-      <input type="text" placeholder="Enter your task..." id="todo-input" />
-      <input type="date" id="date_input" />
-      <button class="btn" onclick="action()">Add</button>
-    </div>
+  <h1>📝 To Do App</h1>
+  <input type="text" placeholder="Enter your task..." id="todo-input" />
+  <input type="date" id="date_input" />
+  <input type="text" id="search_input" placeholder="🔍 Search tasks..." oninput="showToDO()" />
+  <button class="btn" onclick="action()">Add</button>
+</div>
 
     <div class="todo-list">
       <h2>Your Tasks</h2>

@@ -122,9 +122,23 @@ body {
   font-size: 14px;
   width: 100%;
 }
+#search_input {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+.highlight {
+  background-color: yellow;
+  font-weight: bold;
+}
 
 /* Responsive for mobile */
 @media screen and (max-width: 480px) {
+  #search_input {
+    font-size: 14px;
+    padding: 8px;
+  }
   .container {
     padding: 20px;
   }

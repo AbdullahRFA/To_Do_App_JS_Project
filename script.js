@@ -52,25 +52,41 @@ function toggleDone(index){
 }
 function showToDO() {
   let todo_div = document.querySelector(".todo-div");
+  let searchText = document.querySelector("#search_input")?.value.toLowerCase() || "";
+
   let newHtml = '';
 
   for (let i = 0; i < store.length; i++) {
-    const checked = store[i].done ? 'checked' : '';
-    const doneClas = store[i].done ? 'done' : '';
-    newHtml += `
+    const task = store[i];
+    const checked = task.done ? 'checked' : '';
+    const doneClas = task.done ? 'done' : '';
+
+    if (
+      task.item.toLowerCase().includes(searchText) ||
+      task.date.toLowerCase().includes(searchText)
+    ) {
+      const highlightedItem = highlightText(task.item, searchText);
+      const highlightedDate = highlightText(task.date, searchText);
+
+      newHtml += `
         <div class="js-todo-div">
-            <input type="checkbox" onchange="toggleDone(${i})" ${checked}>
-            <span class="${doneClas}">${store[i].item}</span>
-            <span class="${doneClas}">${store[i].date}</span>
-            <button onclick="editTask(${i})">✏️ Edit</button>
-            <button onclick="Delete(${i})">🗑 Delete</button>
+          <input type="checkbox" onchange="toggleDone(${i})" ${checked}>
+          <span class="${doneClas}">${highlightedItem}</span>
+          <span class="${doneClas}">${highlightedDate}</span>
+          <button onclick="editTask(${i})">✏️ Edit</button>
+          <button onclick="Delete(${i})">🗑 Delete</button>
         </div>
-        `;
+      `;
+    }
   }
 
   todo_div.innerHTML = newHtml;
 }
-
+function highlightText(text, keyword) {
+  if (!keyword) return text;
+  const regex = new RegExp(`(${keyword})`, 'gi');
+  return text.replace(regex, '<span class="highlight">$1</span>');
+}
 function Delete(i) {
   store.splice(i, 1);
   saveToLocalStorage();
